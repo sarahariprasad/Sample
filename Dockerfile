@@ -1,17 +1,5 @@
-FROM node
+FROM node:7-onbuild
 
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get clean
+LEBEL maitainer "sarahariprasad@gmail.com"
 
-RUN mkdir /app
-WORKDIR /app
-
-COPY package*.json /app/
-
-RUN npm install
-
-COPY src /app/src
-
-EXPOSE 3000
-
-CMD [ "npm", "start" ]
+EXPOSE 8000
